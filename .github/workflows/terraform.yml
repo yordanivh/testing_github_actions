@@ -1,7 +1,10 @@
-name: GitHub Actions Demo
+name: Test Hello
 on: [pull_request]
 jobs:
-  always-pass:
+  test-hello:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 0
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: bash ./hello_test.sh
